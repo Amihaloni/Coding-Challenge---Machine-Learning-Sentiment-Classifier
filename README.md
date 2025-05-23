@@ -25,17 +25,25 @@ I used Fastapi thinking about the scalability and future uses in order ot run th
     The directory should look like `Machine-Learning-Sentiment-Classifier>` 
 
 3. With CommandPrompt open and directory changed run the following:
-    Conda:  `conda create -n your_env_name`
-            `conda activate your_env_name`
-            `pip install -r requirements_api.txt`
-            `uvicorn api_server:app --reload`
+    Conda:  
+    `conda create -n your_env_name`
+            
+    `conda activate your_env_name`
+            
+    `pip install -r requirements_api.txt`
+    
+    `uvicorn api_server:app --reload`
 
-    venv:   `python -m venv myenv`
-            `myenv\Scripts\activate`      on windows
-            or
-            `source myenv/bin/activate`   On Linux/macOS
-            `pip install -r requirements_api.txt`
-            `uvicorn api_server:app --reload`
+    venv:   
+    `python -m venv myenv`
+    
+    `myenv\Scripts\activate`      on windows
+    or
+    `source myenv/bin/activate`   On Linux/macOS
+            
+    `pip install -r requirements_api.txt`
+            
+    `uvicorn api_server:app --reload`
 
 4. Your terminal will show :
     INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
