@@ -76,7 +76,9 @@ Once the API server is running (as described in "How to run the api script"), yo
 #### Endpoint Details:
 
 *URL:* http://127.0.0.1:8000/predict (or replace 127.0.0.1 with the server's IP address if running elsewhere)
+
 *HTTP Method:* POST
+
 *Request Body Format:* JSON
 
 #### How to call
