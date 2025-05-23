@@ -7,7 +7,7 @@ The data processing techniques are stored in the file `.\Coding-Challenge---Mach
 The Modelling techniques included tfidf with base models and using transformers, all can be found in the 
 `.\Coding-Challenge---Machine-Learning-Sentiment-Classifier\Models.ipynb`
 
-The output of the data processing notebook are two cleaned files for two different types of modelling approach both the files have been downloaded and put in the repository named : crypto_data_base.csv and crypto_data_transformer.csv, as the name suggests the files have been used accordingly for the model development.
+The output of the data processing notebook are two cleaned files for two different types of modelling approach both the files have been downloaded and put in the repository named : crypto_data_base.csv and crypto_data_transformer.csv, as the name suggests the files have been used accordingly for the model development. The Best accuracy for the limted dataset was best achieved at 86% due to resource constraints and scalability in views.
 
 Further the model parameters the weights and tokenizer are all saved in the `model_params/` folder please be aware to download these to use the api as the model is loaded using this.
 
