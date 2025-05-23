@@ -1,4 +1,4 @@
-# Coding-Challenge---Machine-Learning-Sentiment-Classifier
+# Crypto-Comments--Machine-Learning-Sentiment-Classifier
 This is a sentiment classification on reddit comments to identify positive or negative sentiments
 
 ## What is in the Repository
@@ -97,38 +97,38 @@ Once the API server is running (as described in "How to run the api script"), yo
 2. The mostly used Python requests
  
     ```
-        import requests
-        import json
+    import requests
+    import json
 
-        api_url = "http://127.0.0.1:8000/predict"
+    api_url = "http://127.0.0.1:8000/predict"
 
-        comment_to_classify = "I want to buy this but not sure how it will do but I cant miss this opportunity to but the stock how about I just invest a little bit now and then akeep accumulation"
+    comment_to_classify = "I want to buy this but not sure how it will do but I cant miss this opportunity to but the stock how about I just invest a little bit now and then akeep accumulation"
 
-        payload = {
-           "comment": comment_to_classify
-        }
+    payload = {
+        "comment": comment_to_classify
+    }
 
-        # Set the headers to indicate we're sending and accepting
-        headers = {
-            "accept": "application/json",
-            "Content-Type": "application/json"
-        }
+    # Set the headers to indicate we're sending and accepting
+    headers = {
+        "accept": "application/json",
+        "Content-Type": "application/json"
+    }
 
-        try:
-            response = requests.post(api_url, headers=headers, json=payload)
+    try:
+        response = requests.post(api_url, headers=headers, json=payload)
 
-            if response.status_code == 200:
-                prediction_data = response.json()
-                print(f"Original Comment: {prediction_data.get('comment')}")
-                print(f"Predicted Sentiment: {prediction_data.get('predicted_sentiment')}")
-            else:
-                print(f"API request failed with status code {response.status_code}")
-                print(f"Response: {response.text}")
+        if response.status_code == 200:
+            prediction_data = response.json()
+            print(f"Original Comment: {prediction_data.get('comment')}")
+            print(f"Predicted Sentiment: {prediction_data.get('predicted_sentiment')}")
+        else:
+            print(f"API request failed with status code {response.status_code}")
+            print(f"Response: {response.text}")
 
-        except requests.exceptions.ConnectionError as e:
-            print(f"Could not connect to the API at {api_url}")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+    except requests.exceptions.ConnectionError as e:
+        print(f"Could not connect to the API at {api_url}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
     ```
 
 ## Author
