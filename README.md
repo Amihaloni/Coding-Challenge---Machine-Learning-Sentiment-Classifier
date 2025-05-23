@@ -25,7 +25,9 @@ I used Fastapi thinking about the scalability and future uses in order ot run th
     The directory should look like `Machine-Learning-Sentiment-Classifier>` 
 
 3. With CommandPrompt open and directory changed run the following:
+
     Conda:  
+
     `conda create -n your_env_name`
             
     `conda activate your_env_name`
@@ -35,6 +37,7 @@ I used Fastapi thinking about the scalability and future uses in order ot run th
     `uvicorn api_server:app --reload`
 
     venv:   
+
     `python -m venv myenv`
     
     `myenv\Scripts\activate`      on windows
@@ -46,25 +49,30 @@ I used Fastapi thinking about the scalability and future uses in order ot run th
     `uvicorn api_server:app --reload`
 
 4. Your terminal will show :
-    INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
-    INFO:     Started reloader process [15196] using WatchFiles
-    INFO:     Started server process [16608]
-    INFO:     Waiting for application startup.
+
+        INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+
+        INFO:     Started reloader process [15196] using WatchFiles
+
+        INFO:     Started server process [16608]
+
+        INFO:     Waiting for application startup.
+
 
 5. cntrl + click on the link and you will see a welcome message once the startup process is done.
 
 6. In order to check the api predict functionality make sure the application return the print tokenizer and model loaded successfully
 
-    Go to the link and add `/docs` it will reditect you to `localhost:8000/docs#/default/predict_sentiment_predict_post`.
+        Go to the link and add `/docs` it will reditect you to `localhost:8000/docs#/default/predict_sentiment_predict_post`.
 
-    Go to POST section and click on try
+        Go to POST section and click on try
 
-    Change the Request body "string" with your own comment and hit execute you will see a prediction shortly.
+        Change the Request body "string" with your own comment and hit execute you will see a prediction shortly.
 
 ## How to use the API 
 Make sure the number 4 step in the above how to run the api is done already.
 
-1. Using CURL
+1. Using CURL and bash
    
     ```
     curl -X 'POST' \
@@ -74,3 +82,40 @@ Make sure the number 4 step in the above how to run the api is done already.
     -d '{
     "comment": "I just invested in Bitcoin, hope it goes up!"}'
         ```
+
+2. The mostly used Python requests
+ 
+    ```
+        import requests
+        import json
+
+        api_url = "http://127.0.0.1:8000/predict"
+
+        comment_to_classify = "I want to buy this but not sure how it will do but I cant miss this opportunity to but the stock how about I just invest a little bit now and then akeep accumulation"
+
+        payload = {
+           "comment": comment_to_classify
+        }
+
+        # Set the headers to indicate we're sending and accepting
+        headers = {
+            "accept": "application/json",
+            "Content-Type": "application/json"
+        }
+
+        try:
+            response = requests.post(api_url, headers=headers, json=payload)
+
+            if response.status_code == 200:
+                prediction_data = response.json()
+                print(f"Original Comment: {prediction_data.get('comment')}")
+                print(f"Predicted Sentiment: {prediction_data.get('predicted_sentiment')}")
+            else:
+                print(f"API request failed with status code {response.status_code}")
+                print(f"Response: {response.text}")
+
+        except requests.exceptions.ConnectionError as e:
+            print(f"Could not connect to the API at {api_url}")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            ```
