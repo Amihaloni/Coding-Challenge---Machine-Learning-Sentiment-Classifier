@@ -70,8 +70,16 @@ I used Fastapi thinking about the scalability and future uses in order ot run th
         Change the Request body "string" with your own comment and hit execute you will see a prediction shortly.
 
 ## How to use the API 
-Make sure the number 4 step in the above how to run the api is done already.
+#### Make sure the number 4 step in the above how to run the api is done already.
+Once the API server is running (as described in "How to run the api script"), you can send requests to its /predict endpoint to get sentiment predictions.
 
+#### Endpoint Details:
+
+*URL:* http://127.0.0.1:8000/predict (or replace 127.0.0.1 with the server's IP address if running elsewhere)
+*HTTP Method:* POST
+*Request Body Format:* JSON
+
+#### How to call
 1. Using CURL and bash
    
     ```
@@ -81,7 +89,8 @@ Make sure the number 4 step in the above how to run the api is done already.
     -H 'Content-Type: application/json' \
     -d '{
     "comment": "I just invested in Bitcoin, hope it goes up!"}'
-        ```
+    
+    ```
 
 2. The mostly used Python requests
  
@@ -118,4 +127,8 @@ Make sure the number 4 step in the above how to run the api is done already.
             print(f"Could not connect to the API at {api_url}")
         except Exception as e:
             print(f"An error occurred: {e}")
-            ```
+    ```
+
+## Author
+
+Name: Amit
